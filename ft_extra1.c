@@ -13,16 +13,6 @@ int ft_nbrLen(long nbr)
 	return (len);
 }
 
-int ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 int ft_nbrlen(unsigned long value, int base_len)
 {
 	int	len;

@@ -12,20 +12,6 @@
 
 #include "ft_printf.h"
 
-int print_hex_mayus(va_list args)
-{
-	unsigned int	i;
-	char	*str;
-
-	i = va_arg(args, unsigned int);
-	str = ft_itoa_base(i, "0123456789ABCDEF");
-	i = ft_strlen(str);
-	write(1, str, i);
-	if (str)
-		free(str);
-	return (i);
-}
-
 int print_pointer(va_list args)
 {
 	unsigned long	i;
@@ -68,8 +54,7 @@ int ft_printf(char const *input_print, ...)
 	{
 		if (input_print[i] == '%')
 		{	
-			i++;
-			if (input_print[i] == 'd' || input_print[i] == 'i')
+			if (input_print[++i] == 'd' || input_print[i] == 'i')
 				j += print_int(args);
 			if (input_print[i] == 's')
 				j += print_string(args);
@@ -79,12 +64,10 @@ int ft_printf(char const *input_print, ...)
 				j += write(1, &(char){va_arg(args, int)}, 1);
 			if (input_print[i] == '%')
 				j += write(1, "%", 1);
-			if (input_print[i] == 'x')
-				j += print_hex(args);
-			if (input_print[i] == 'X')
-				j += print_hex_mayus(args);
+			if (input_print[i] == 'X' || input_print[i] == 'x')
+				j += print_hex(args, input_print[i]);
 			if (input_print[i] == 'u')
-				j += ft_found_u(va_arg(args, unsigned int));
+				j += print_unsigned(args);
 		}
 		else
 			j += write(1, &input_print[i], 1);
@@ -94,16 +77,19 @@ int ft_printf(char const *input_print, ...)
 	return (j);
 }
 
-/*
+
 int main()
 {
 	//test of all functions
 	int a = 42;
 	int	i = 0;
-	i = ft_printf("Hello %s, %d, %i, %u, %x, %X, %p, %c, %%%%", '\0', 42, 42, 42, 42, 42, &a, "hola");
-	printf("\n%d", i);
-	//i = printf("Hello %s, %d, %i, %u, %x, %X, %p, %c, %%%%", '\0', 42, 42, 42, 42, 42, &a, "hola");
-	//printf("\n%d", i);
+	i = ft_printf("ANO  , %d, %X, %p, %c, %%%% ", 42, 42, &a, 'd');
+
+	printf("\n%d\n", i);
+
+	i = printf("Hello %s, %d, %i, %u, %x, %X, %p, %c, %%%% ", "d", 42, 42, 42, 42, 42, &a, 'd');
+
+	printf("\n%d\n", i);
 	return (0);
 }
-*/
+

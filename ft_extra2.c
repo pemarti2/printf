@@ -27,14 +27,19 @@ int print_int(va_list args)
     return (i);
 }
 
-int print_hex(va_list args)
+int print_hex(va_list args, char c)
 {
 	unsigned int	i;
 	char	*str;
 
 	i = va_arg(args, unsigned int);
 	str = ft_itoa_base(i, "0123456789abcdef");
-    i = ft_strlen(str);
+    i = -1;
+	if (c == 'X')
+	{
+		while (str[++i])
+			str[i] = ft_toupper(str[i]);
+	}
 	write(1, str, i);
     if (str)
         free(str);
