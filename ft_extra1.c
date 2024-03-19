@@ -1,19 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_extra2.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pemarti2 <pemarti2@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/09 11:02:27 by pemarti2          #+#    #+#             */
+/*   Updated: 2024/03/09 11:02:30 by pemarti2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int ft_nbrLen(long nbr)
-{
-	int	len;
-
-	len = 1;
-	while (nbr >= 10)
-	{
-		nbr /= 10;
-		len++;
-	}
-	return (len);
-}
-
-int ft_nbrlen(unsigned long value, int base_len)
+int	ft_nbrlen(unsigned long value, int base_len)
 {
 	int	len;
 
@@ -26,7 +25,7 @@ int ft_nbrlen(unsigned long value, int base_len)
 	return (len);
 }
 
-char *ft_itoa_base(unsigned long value, char *base)
+char	*ft_itoa_base(unsigned long value, char *base)
 {
 	char	*str;
 	int		len;
