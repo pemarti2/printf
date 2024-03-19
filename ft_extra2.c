@@ -12,34 +12,34 @@
 
 #include "ft_printf.h"
 
-int print_string(va_list args)
+int	print_string(va_list args)
 {
 	char	*str;
-    int     i;
+	int		i;
 
 	str = va_arg(args, char *);
 	if (!str)
 		str = "(null)";
-    i = ft_strlen(str);
+	i = ft_strlen(str);
 	write(1, str, i);
-    return (i);
+	return (i);
 }
 
-int print_int(va_list args)
+int	print_int(va_list args)
 {
 	int		i;
 	char	*str;
 
 	i = va_arg(args, int);
 	str = ft_itoa(i);
-    i = ft_strlen(str);
+	i = ft_strlen(str);
 	write(1, str, i);
-    if (str)
-        free(str);
-    return (i);
+	if (str)
+		free(str);
+	return (i);
 }
 
-int print_hex(va_list args, char c)
+int	print_hex(va_list args, char c)
 {
 	unsigned int	i;
 	char			*str;
@@ -54,7 +54,7 @@ int print_hex(va_list args, char c)
 			str[i] = ft_toupper(str[i]);
 	}
 	write(1, str, i);
-    if (str)
-        free(str);
-    return (i);
+	if (str)
+		free(str);
+	return (i);
 }
