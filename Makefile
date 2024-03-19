@@ -18,7 +18,7 @@ LIBFT_DIR := ./Libft
 LIBFT := $(LIBFT_DIR)/libft.a
 
 SRCS := \
-	ft_printf.c ft_extra1.c ft_extra2.c
+	ft_extra1.c ft_extra2.c ft_printf.c
 
 OBJECTS := $(SRCS:.c=.o)
 

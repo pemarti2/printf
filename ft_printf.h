@@ -18,7 +18,7 @@
 
 //ft_extra1.c
 int		ft_nbrlen(unsigned long value, int base_len);
-char	ft_itoa_base(unsigned long value, char *base);
+char	*ft_itoa_base(unsigned long value, char *base);
 
 //ft_extra2.c
 int		print_string(va_list args);
