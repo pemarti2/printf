@@ -29,11 +29,13 @@ int	print_pointer(va_list args)
 
 int	print_unsigned(va_list args)
 {
-	unsigned int	i;
+	int				i;
+	unsigned int	u_i;
 	char			*str;
 
-	i = va_arg(args, unsigned int);
-	str = ft_itoa(i);
+	i = va_arg(args, int);
+	u_i = (unsigned int) i;
+	str = ft_uitoa(i);
 	i = ft_strlen(str);
 	write(1, str, i);
 	if (str)

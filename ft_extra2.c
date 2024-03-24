@@ -58,3 +58,30 @@ int	print_hex(va_list args, char c)
 		free(str);
 	return (i);
 }
+
+char	*ft_uitoa(unsigned int n)
+{
+	int				len;
+	char			*str;
+	unsigned int	temp;
+
+	len = 0;
+	temp = n;
+	if (temp == 0)
+		len++;
+	while (temp != 0)
+	{
+		temp /= 10;
+		len++;
+	}
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	while (len--)
+	{
+		str[len] = n % 10 + '0';
+		n /= 10;
+	}
+	return (str);
+}

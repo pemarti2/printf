@@ -24,3 +24,10 @@ char	*ft_itoa_base(unsigned long value, char *base);
 int		print_string(va_list args);
 int		print_int(va_list args);
 int		print_hex(va_list args, char c);
+char	*ft_uitoa(unsigned int n);
+
+//ft_printf.c
+int		print_pointer(va_list args);
+int		print_unsigned(va_list args);
+int		ft_printf_printer(char letter, va_list args);
+int		ft_printf(char const *input_print, ...);
